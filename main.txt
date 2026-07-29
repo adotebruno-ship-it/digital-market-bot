@@ -1,0 +1,32 @@
+from telegram import ReplyKeyboardMarkup, Update
+from telegram.ext import (
+    Application,
+    CommandHandler,
+    ContextTypes,
+)
+
+TOKEN = "REMPLACE_PAR_LE_TOKEN_DE_TON_BOT"
+
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    keyboard = [
+        ["🎮 Jeux", "🕹 Consoles"],
+        ["🎧 Accessoires", "💳 Abonnements"],
+        ["📞 Support", "🛒 Mon panier"]
+    ]
+
+    await update.message.reply_text(
+        "🎮 Bienvenue sur DIGITAL Market Gaming\n\n"
+        "Choisissez une catégorie :",
+        reply_markup=ReplyKeyboardMarkup(
+            keyboard,
+            resize_keyboard=True
+        )
+    )
+
+app = Application.builder().token(TOKEN).build()
+
+app.add_handler(CommandHandler("start", start))
+
+print("Bot démarré...")
+
+app.run_polling()
