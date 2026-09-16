@@ -14,7 +14,8 @@ ADMIN_CHAT_ID = os.getenv("ADMIN_CHAT_ID")  # ton ID Telegram, pour recevoir les
 WAVE_NUMBER = os.getenv("WAVE_NUMBER", "Non configuré")
 ORANGE_MONEY_NUMBER = os.getenv("ORANGE_MONEY_NUMBER", "Non configuré")
 
-DB_PATH = "data/shop.db"
+DB_PATH = os.getenv("DB_PATH", "shop.db")
+
 
 # Catégories du magasin. Adapte librement à ce que tu vends réellement
 # (produits physiques, accessoires, codes d'abonnement achetés légitimement, etc.)
