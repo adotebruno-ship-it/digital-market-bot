@@ -31,7 +31,7 @@ from handlers.admin import (
 
 
 def main():
-    asyncio.run(init_db())
+    
 
     app = Application.builder().token(BOT_TOKEN).build()
 
@@ -66,8 +66,12 @@ def main():
     app.add_handler(add_product_conversation)
 
     print("Bot démarré...")
+    
     app.run_polling()
 
 
+
 if __name__ == "__main__":
+    asyncio.run(init_db())
     main()
+
